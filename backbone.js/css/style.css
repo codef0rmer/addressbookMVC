@@ -1,0 +1,59 @@
+header {
+    text-align:center;
+    font-size: 30px;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+.table { display: table;}
+.row { display:table-row;}
+.cell { display:table-cell;}
+.abWrapper {
+    width : 95%;
+    height: 500px;
+    margin: 0 auto;
+}
+.abLinks {
+    width: 150px;
+}
+.abLinks > a { 
+    font-size: 14px; 
+    line-height: 25px;
+    text-decoration: none;
+    border-bottom: 1px dotted blue;
+}
+.abPanel { 
+    width : auto; 
+    border-left: 1px solid black;
+    padding-left: 20px;
+}
+
+div.abPanel div {
+    float: left;
+    width: 100px;
+    height: 20px;
+}
+div.abPanel .input {
+    width: 300px;
+    height: 20px;
+    margin: 0 0 5px 0;
+}
+div.abPanel .textarea {
+    width: 295px;
+    height: 80px;
+}
+div.abPanel .button {
+    margin-left: 100px;
+}
+div.abPanel span.true {
+    color: green;
+}
+div.abPanel span.false {
+    color: red;
+}
+div.abPanel div#grid { width: 100%; }
+table#contactsGrid a {
+    cursor: pointer;
+    text-decoration: underline;
+    color: blue;
+}

@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>Addressbook in Backbone.js</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<meta name="viewport" content="width=device-width">
+
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+<header>
+Addressbook in Backbone.js	
+</header>
+<div class='table abWrapper'>
+	<div class='row'>
+		<div class='cell abLinks'>
+			<a href='#add_new_contact'>Add New Contact</a><br />
+			<a href='#list_contacts'>List all Contacts</a><br />
+			<a href='#search_contacts'>Search any Contact</a><br />
+		</div>
+		<div class='cell abPanel'>Loading... Please Wait.</div>
+	</div>
+</div>
+
+
+<!-- addNewContact View starts here -->
+<script type='text/template' id='addContactTemplate'>
+	<h2><%= $.isEmptyObject(contact) ? 'Add' : 'Edit'%> New Contact</h2>
+	<form id='frmAddContact'>
+		<div>Full Name:</div> <input type='text' id='full_name' class='input' value="<%= !$.isEmptyObject(contact) ? contact.full_name : '' %>" /> <span class='false full_name_error'></span><br />
+		<div>Email Id:</div> <input type='text' id='email' class='input' value="<%= !$.isEmptyObject(contact) ? contact.email : '' %>" />  <span class='false email_error'></span><br />
+		<div>Phone:</div> <input type='text' id='phone' class='input' value="<%= !$.isEmptyObject(contact) ? contact.phone : '' %>" />  <span class='false phone_error'></span><br />
+		<div>Address:</div> <textarea id='address' class='textarea'><%= !$.isEmptyObject(contact) ? contact.address : '' %></textarea> <br /><br />		
+		<input type='submit' value='<%= $.isEmptyObject(contact) ? 'Save' : 'Update'%> Contact Details' class='button' />
+		<span class='success'></span>
+		<input type='hidden' id='id' class='input' value="<%= !$.isEmptyObject(contact) ? contact.id : '' %>"/>
+	</form>
+</script>
+<!-- addNewContact View ends here -->
+
+<!-- listContacts View starts here -->
+<script type='text/template' id='listContactsTemplate'>
+	<h2>List Contacts</h2>
+	<table id='contactsGrid' width='100%' border='1' cellspacing='1' cellpadding='5'>
+		<tr>
+			<td width='25%'><b>Full Name</b></td>
+			<td width='25%'><b>Email ID</b></td>
+			<td width='15%'><b>Phone</b></td>
+			<td width='25%'><b>Address</b></td>
+			<td width='10%' align='center'><b>Action</b></td>
+		</tr>
+		<%	if ($.isEmptyObject(contacts)) { %>
+				<tr><td colspan='5'>No Record Found</td></tr>
+		<% 	} else { 
+				$.each(contacts, function () { %>
+					<tr data-id=<%= this.id%>>
+						<td><%= this.full_name%></td>
+						<td><%= this.email %></td>
+						<td><%= this.phone %></td>
+						<td><%= this.address %></td>
+						<td align='center'><a>Edit</a> | <a>Delete</a></td>
+					</tr>
+		<% 		})
+			} 
+		%>
+	</table>
+</script>
+<!-- listContacts View ends here -->
+
+<!-- searchContacts View starts here -->
+<script type='text/template' id='searchContactsTemplate'>
+	<h2>Search Contacts</h2>
+	<form id='frmSearchContacts'>
+		<div>Name:</div> <input type='text' id='full_name' class='input' /> <br />
+		<div>Email Id:</div> <input type='text' id='email' class='input' /> <br />
+		<input type='submit' value='Search Contact' class='button' />
+	</form>
+	<div id='grid'></div>
+
+</script>
+<!-- searchContacts View ends here -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+
+<script src="js/plugins.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
