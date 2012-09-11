@@ -1,0 +1,22 @@
+<form class="form-horizontal" ng-controller="searchCtrl">
+  <legend>Search Contacts</legend>
+  <div class="control-group">
+    <label class="control-label" for="full_name">Full Name</label>
+    <div class="controls">
+      <input type="text" id="full_name" placeholder="Full Name" class='input-xlarge' ng-model="filter_full_name">
+      <input type='hidden' id='id' class='input' value=""/>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="email">Email</label>
+    <div class="controls">
+      <input type="text" id="email" placeholder="Email" class='input-xlarge' ng-model="filter_email">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary" ng-click="searchContacts(filter_full_name, filter_email);">Search Contacts</button>
+    </div>
+  </div>
+  <div ng-include src="'partials/list.html'"></div>
+</form>

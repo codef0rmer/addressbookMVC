@@ -1,0 +1,39 @@
+<form class="form-horizontal" name="frmAdd" novalidate ng-controller="addCtrl">
+  <legend>Add New Contact</legend>
+  <div class="control-group">
+    <label class="control-label" for="full_name">Full Name</label>
+    <div class="controls">
+      <input type="text" id="full_name" name="full_name" placeholder="Full Name" class='input-xlarge' ng-model="full_name" ng-pattern="/^[A-Za-z]+(?:[\s-][A-Za-z]+)*$/" required>
+      <br/><span class="label label-error" ng-show="frmAdd.full_name.$error.pattern">Full name should contain alphabets and spaces only</span>
+      <span class="label label-error" ng-show="frmAdd.full_name.$error.required">required</span>
+      <input type='hidden' id='id' class='input' value=""/>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="email">Email</label>
+    <div class="controls">
+      <input type="email" id="email" name="email" placeholder="Email" class='input-xlarge' ng-model="email" required>
+      <br/><span class="label label-error" ng-show="frmAdd.email.$error.required">required</span>
+      <span class="label label-error" ng-show="frmAdd.email.$error.email">Please enter valid email</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="phone">Phone</label>
+    <div class="controls">
+      <input type="text" id="phone" name="phone" placeholder="Phone" class='input-medium' ng-model="phone" ng-pattern="/^[0-9]+$/">
+      <br/><span class="label label-error" ng-show="frmAdd.phone.$error.pattern">Phone number should be numeric</span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="address">Address</label>
+    <div class="controls">
+      <textarea type="text" id="address" placeholder="Address" rows="5" class='input-xlarge' ng-model="address"></textarea>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary" ng-click="save()">Save Contact Details</button>
+      <span class="label label-info {{msg || 'hide'}}">{{msg}}</span>
+    </div>
+  </div>
+</form>
