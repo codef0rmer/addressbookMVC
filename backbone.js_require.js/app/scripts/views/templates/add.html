@@ -1,0 +1,37 @@
+<form class="form-horizontal" id='frmAdd'>
+  <legend>Add New Contact</legend>
+  <div class="control-group">
+    <label class="control-label" for="full_name">Full Name</label>
+    <div class="controls">
+      <input type="text" id="full_name" name="full_name" placeholder="Full Name" class='input-xlarge' />
+      <span class="full_name_error label label-info hide"></span>
+      <input type='hidden' id='id' class='input' value=""/>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="email">Email</label>
+    <div class="controls">
+      <input type="email" id="email" name="email" placeholder="Email" class='input-xlarge' />
+      <span class="email_error label label-info hide"></span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="phone">Phone</label>
+    <div class="controls">
+      <input type="text" id="phone" name="phone" placeholder="Phone" class='input-medium'>
+      <span class='phone_error label label-info hide'></span>
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="address">Address</label>
+    <div class="controls">
+      <textarea type="text" id="address" placeholder="Address" rows="5" class='input-xlarge'></textarea>
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary" id='btnSave'>Save Contact Details</button>
+      <span class="success label label-info hide"></span>
+    </div>
+  </div>
+</form>

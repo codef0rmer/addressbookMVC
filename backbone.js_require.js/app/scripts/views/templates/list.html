@@ -1,0 +1,21 @@
+<table class="table table-striped table-bordered">
+  <caption><h2>List Contacts</h2></caption>
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email ID</th>
+      <th>Phone</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%_.each(contacts, function (contact) {%>
+    <tr>
+      <td><%=contact.full_name%></td>
+      <td><%=contact.email%></td>
+      <td><%=contact.phone%></td>
+      <td><%=contact.address%></td>
+    </tr>
+    <%});%>
+  </tbody>
+</table>
