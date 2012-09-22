@@ -27,21 +27,22 @@
     <div class="row-fluid">
       <div class="span3">
         <div class="well sidebar-nav">
+          <!-- Nav Controller -->
           <ul class="nav nav-list" ng-controller="navCtrl">
             <li ng-class="navClass('add')"><a href='#/add'>Add New Contact</a></li>
             <li ng-class="navClass('list')"><a href='#/list'>List all Contacts</a></li>
             <li ng-class="navClass('search')"><a href='#/search'>Search any Contact</a></li>
           </ul>
-        </div><!--/.well -->
-      </div><!--/span-->
+        </div>
+      </div>
       <div class="span9">
+        <!-- Views load here after clicking the nav links above -->
         <div ng-view></div>
       </div>
     </div>
   </div>
 
   <script src="lib/angular/angular.js"></script>
-  <script type="text/javascript" src="lib/jquery.min.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers.js"></script>  
 </body>

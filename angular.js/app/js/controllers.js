@@ -1,9 +1,11 @@
+//For page navigation bar ul.nav-list
 App.controller('navCtrl', ['$scope', '$location', function ($scope, $location) {
   $scope.navClass = function (page) {
     return page === $location.path().substring(1) ? 'active' : '';
   };
 }]);
 
+// For add new contact page
 App.controller('addCtrl', ['$scope', '$http', function ($scope, $http) {
   $scope.save = function () {
     $http.post(
@@ -21,11 +23,13 @@ App.controller('addCtrl', ['$scope', '$http', function ($scope, $http) {
   };
 }]);
 
+// For list contacts page
 App.controller('listCtrl', ['$scope', '$http', function ($scope, $http) {
   $http.get('../../php/listContacts.php').success(function (data) {
     $scope.contacts = data;
   });
 
+  // Catching **searchBroadcast** event emitted by the $rootScope
   $scope.$on('searchBroadcast', function (event, args) {
     $scope.filter_full_name = args.full_name;
     $scope.filter_email = args.email;
@@ -36,7 +40,9 @@ App.controller('listCtrl', ['$scope', '$http', function ($scope, $http) {
   });
 }]);
 
+// For search contacts page
 App.controller('searchCtrl', ['$scope', '$http', function ($scope, $http) {
+  // Propagating **searchEmit** to be catched by $rootScope
   $scope.searchContacts = function (full_name, email) {
     $scope.$emit('searchEmit', {full_name: full_name, email: email});
   };
