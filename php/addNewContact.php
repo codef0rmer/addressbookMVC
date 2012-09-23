@@ -2,6 +2,7 @@
 include "config.php";
 
 $id = $_GET['id'];
+$id = $id === 'undefined' ? '' : $id;
 $full_name = $_GET['full_name'];
 $email = $_GET['email'];
 $phone = $_GET['phone'];
